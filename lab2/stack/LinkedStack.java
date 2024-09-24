@@ -53,10 +53,6 @@ public class LinkedStack<E> implements Stack<E> {
   public LinkedStack() {
   } // new stack is initially empty
 
-  public LinkedStack(int n) {
-    //TODO Auto-generated constructor stub
-  }
-
   /**
    * Returns the number of elements in the stack.
    * 
