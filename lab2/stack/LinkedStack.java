@@ -53,6 +53,10 @@ public class LinkedStack<E> implements Stack<E> {
   public LinkedStack() {
   } // new stack is initially empty
 
+  public LinkedStack(int n) {
+    //TODO Auto-generated constructor stub
+  }
+
   /**
    * Returns the number of elements in the stack.
    * 
@@ -77,7 +81,11 @@ public class LinkedStack<E> implements Stack<E> {
    * @param element the element to be inserted
    */
   public void push(E element) {
-    // this is a dummy method now; it needs to be implemented <<<<<<<<<<<<<<<
+    Node<E> current = new Node<>(element, head);
+    current.setNext(head);
+    head = current;
+    size++;
+    
   }
 
   /**
@@ -86,7 +94,10 @@ public class LinkedStack<E> implements Stack<E> {
    * @return top element in the stack (or null if empty)
    */
   public E top() {
-    return null; // this is a dummy method now; it needs to be implemented <<<<<<<<<<<<<<<
+    if(isEmpty()){
+      return null;
+    }
+    return head.getElement();
   }
 
   /**
@@ -95,7 +106,14 @@ public class LinkedStack<E> implements Stack<E> {
    * @return element removed (or null if empty)
    */
   public E pop() {
-    return null; // this is a dummy method now; it needs to be implemented <<<<<<<<<<<<<<<
+    if(isEmpty()){
+      return null;
+    }
+    Node<E> oldHead = head;
+    Node<E> newHead = head.getNext();
+    head = newHead;
+    size--;
+    return oldHead.getElement();
   }
 
   /**
