@@ -66,7 +66,7 @@ public class TryStack2 {
    * @param n
    */
   public void setStack(int n) {
-    stack = new LinkedStack<>(n);
+    stack = new LinkedStack<>();
   }
 
   /**
@@ -115,7 +115,7 @@ public class TryStack2 {
 
     int n = args.length > 0 ? Integer.valueOf(args[0]) : 50;
 
-    TryStack2 tryStack = new TryStack2(n, new LinkedStack<Integer>(n));
+    TryStack2 tryStack = new TryStack2(n, new LinkedStack<Integer>());
     tryStack.runSimulation();
   }
 }
