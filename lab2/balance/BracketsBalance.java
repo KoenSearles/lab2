@@ -30,9 +30,24 @@ class BracketsBalance {
     private boolean isBalanced(String exp) {
 
         // INSERT YOUR CODE HERE 
+        ArrayStack<Character> charStack = new ArrayStack<>(exp.length());
 
-        return false; // dummy answer for startup code
+        for (int i = 0; i < exp.length(); i++) {
+            if (exp.charAt(i) == '(' || exp.charAt(i) == '[' || exp.charAt(i) == '{') {
+                charStack.push(exp.charAt(i));
+            } else {
+                if (!charStack.isEmpty()) {
+                    if (exp.charAt(i) == ')' && charStack.top() == '(' || exp.charAt(i) == ']' && charStack.top() == '[' || 
+                    exp.charAt(i) == '}' && charStack.top() == '{') {
+                        charStack.pop();
+                    }
+                } else if (charStack.isEmpty() && i+1 > exp.length()) {
+                    return false;
+                }
+            }
+        }
 
+        return charStack.isEmpty();
     }
 
     /**
